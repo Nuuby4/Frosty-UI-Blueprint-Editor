@@ -38,33 +38,36 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Reference Include="FrostyControls">
-		  <HintPath>..\..\gw2 stuff\FrostyEditor\FrostyControls.dll</HintPath>
-		</Reference>
-		<Reference Include="FrostyCore">
-			<HintPath>D:\Documents\gw2 stuff\FrostyEditor\FrostyCore.dll</HintPath>
-		</Reference>
-		<Reference Include="FrostyHash">
-		  <HintPath>..\..\gw2 stuff\FrostyEditor\FrostyHash.dll</HintPath>
-		</Reference>
-		<Reference Include="FrostySdk">
-			<HintPath>D:\Documents\gw2 stuff\FrostyEditor\FrostySdk.dll</HintPath>
-		</Reference>
-		<Reference Include="LocalizedStringPlugin">
-		  <HintPath>..\..\gw2 stuff\FrostyEditor\Plugins\LocalizedStringPlugin.dll</HintPath>
-		</Reference>
-		<Reference Include="Microsoft.CSharp" />
-		<Reference Include="SharpDX.Direct3D11">
-		  <HintPath>..\..\gw2 stuff\FrostyEditor\ThirdParty\SharpDX.Direct3D11.dll</HintPath>
-		</Reference>
-		<Reference Include="SharpDX.DXGI">
-		  <HintPath>..\..\gw2 stuff\FrostyEditor\ThirdParty\SharpDX.DXGI.dll</HintPath>
-		</Reference>
-		<Reference Include="TexturePlugin">
-		  <HintPath>..\..\gw2 stuff\FrostyEditor\Plugins\TexturePlugin.dll</HintPath>
-		</Reference>
-	</ItemGroup>
+	  <Reference Include="FrostyControls">
+	    <HintPath>..\..\FrostyEditor\bin\Developer\Debug\FrostyControls.dll</HintPath>
+	  </Reference>
+	  <Reference Include="FrostyCore">
+	    <HintPath>..\..\FrostyEditor\bin\Developer\Debug\FrostyCore.dll</HintPath>
+	  </Reference>
+	  <Reference Include="FrostyHash">
+	    <HintPath>..\..\FrostyEditor\bin\Developer\Debug\FrostyHash.dll</HintPath>
+	  </Reference>
+	  <Reference Include="FrostySdk">
+	    <HintPath>..\..\FrostyEditor\bin\Developer\Debug\FrostySdk.dll</HintPath>
+	  </Reference>
+	  <Reference Include="LocalizedStringPlugin">
+	    <HintPath>..\..\FrostyEditor\bin\Developer\Debug\Plugins\LocalizedStringPlugin.dll</HintPath>
+	  </Reference>
+	  <Reference Include="SharpDX.Direct3D11">
+	    <HintPath>..\..\FrostyEditor\bin\Developer\Debug\ThirdParty\SharpDX.Direct3D11.dll</HintPath>
+	  </Reference>
+	  <Reference Include="SharpDX.DXGI">
+	    <HintPath>..\..\FrostyEditor\bin\Developer\Debug\ThirdParty\SharpDX.DXGI.dll</HintPath>
+	  </Reference>
+	  <Reference Include="TexturePlugin">
+	    <HintPath>..\..\FrostyEditor\bin\Developer\Debug\Plugins\TexturePlugin.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Microsoft.CSharp" />
 
+	</ItemGroup>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command='xcopy /Y "$(TargetPath)" "$(SolutionDir)$(OutDir)Plugins\"' />
+	</Target>
 	<ItemGroup>
 	  <Resource Include="Images\Grid.png" />
 	  <Resource Include="Images\IconBitmap.png" />
